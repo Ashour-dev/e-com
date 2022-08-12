@@ -12634,3 +12634,7 @@ fieldset:disabled .btn {
   }
 }
 
+.products-index-table * {
+  vertical-align: center;
+}
+

@@ -14,17 +14,17 @@
                         <th scope="col">photo</th>
                         <th scope="col">Size</th>
                         <th scope="col">Price</th>
-                        <th scope="col">created_at</th>
-                        <th scope="col">updated_at</th>
+                        <th scope="col">created at</th>
+                        <th scope="col">updated at</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($products as $product)
-                    <tr>
+                    <tr class="products-index-table">
                         <th scope="row">{{$product['id']}}</th>
                         <td>{{$product['name']}}</td>
                         <td>{{$product['brand']}}</td>
-                        <td style="max-width: 17rem; overflow:hidden"><a href="{{$product['photo']}}">{{$product['photo']}}</a></td>
+                        <td class="overflow-hidden" style="max-width: 10rem;"><img  class="w-100" src="{{$product['photo']}}" alt="{{$product['photo']}}"></td>
                         <td>{{$product['size']}}</td>
                         <td>{{$product['price']}}</td>
                         <td>{{$product['created_at']}}</td>
