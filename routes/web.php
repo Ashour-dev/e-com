@@ -19,7 +19,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/products', 'ProductController@index')->name('ProductsHome');
-Route::get('/products/{product}', 'ProductController@show')->name('ProductsShow');
+
+Route::middleware('auth')
+->namespace('admin')
+->prefix('admin')
+->name('admin.')
+->group(function(){
+    Route::get('/', function () {
+        return view('admin.welcome');
+    });
+    Route::get('/products', 'ProductController@index')->name('ProductsHome');
+    Route::get('/products/{product}', 'ProductController@show')->name('ProductsShow');
+});
 
