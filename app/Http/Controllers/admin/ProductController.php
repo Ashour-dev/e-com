@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -25,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**
@@ -36,7 +37,38 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'min:5','max:255'],
+            'brand' => ['required', 'string', 'min:5','max:255'],
+            'photo' => ['required'],
+            'photo.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'description' => ['required', 'string','min:10','max:65000'],
+            'size' => ['required'],
+            'price' => ['required', 'numeric','min:1'],
+        ]);
+
+        $data = $request->all();
+
+        $newProduct = new Product();
+        $newProduct->name = $data["name"];
+        $newProduct->brand = $data["brand"];
+        $newProduct->photo = Storage::put('uploads',$data["photo"]);
+        // $newProduct->user_id = Auth::user()->id;
+        // $newProduct->description = $data["description"];
+        $newProduct->size = $data["size"];
+        $newProduct->price = $data["price"];
+        $newProduct->save();
+        $images=array();
+        // if($files=$request->file('images')){
+        //     foreach($files as $file){
+        //         $newPicture = new Picture();
+        //         $newPicture->apartment_id = $newProduct->id;
+        //         $newPicture->image=Storage::put('uploads',$file);
+        //         $newPicture->save();
+        //     }
+        // }
+
+        return redirect()->route('admin.products.index');
     }
 
     /**

@@ -31,7 +31,10 @@ Route::middleware('auth')
     Route::get('/', function () {
         return view('admin.welcome');
     });
-    Route::get('/products', 'ProductController@index')->name('ProductsHome');
-    Route::get('/products/{product}', 'ProductController@show')->name('ProductsShow');
+    // Route::get('/products', 'ProductController@index')->name('ProductsHome');
+    // Route::get('/products/{product}', 'ProductController@show')->name('ProductsShow');
+    // Route::get('/products/create', 'ProductController@create')->name('ProductsCreate');
+    Route::resource('/products',"ProductController");
+
 });
 
