@@ -24,7 +24,13 @@
                         <th scope="row">{{$product['id']}}</th>
                         <td>{{$product['name']}}</td>
                         <td>{{$product['brand']}}</td>
-                        <td class="overflow-hidden" style="max-width: 10rem;"><img  class="w-100" src="{{$product['photo']}}" alt="{{$product['photo']}}"></td>
+                        <td class="overflow-hidden" style="max-width: 10rem;">
+                            @if (str_starts_with($product->photo, 'https://') || str_starts_with($product->photo, 'http://'))
+                                <img class="w-100" src="{{$product['photo']}}" alt="{{$product['photo']}}">
+                            @else
+                                <img class="w-100" src="{{ asset('/storage') . '/' . $product['photo'] }}" alt="{{$product['name']}}">
+                            @endif
+                        </td>
                         <td>{{$product['size']}}</td>
                         <td>{{$product['price']}}</td>
                         <td>{{$product['created_at']}}</td>
