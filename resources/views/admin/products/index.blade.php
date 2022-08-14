@@ -15,17 +15,23 @@
                     {{session('product-edited')}}
                 </div>
             @endif
+            @if (session('product-deleted'))
+                <div class="alert alert-success">
+                    {{session('product-deleted')}}
+                </div>
+            @endif
             <table class="table w-100 table-hover text-center">
                 <thead>
                     <tr>
                         <th scope="col">id</th>
-                        <th scope="col">name</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Brand</th>
-                        <th scope="col">photo</th>
+                        <th scope="col">Photo</th>
                         <th scope="col">Size</th>
                         <th scope="col">Price</th>
                         {{-- <th scope="col">created at</th> --}}
                         <th scope="col">updated at</th>
+                        <th scope="col" colspan="3">Options</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,6 +60,14 @@
                                 <a href="/admin/products/{{$product['id']}}/edit">
                                     <button type="button" class="btn btn-warning">Edit</button>
                                 </a>
+                            </td>
+                            <td>
+                                <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST"
+                                    class="product-form-destroyer">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger text-white">delete</a>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
