@@ -3,6 +3,25 @@
 
 @section('content')
 <div class="container-fluid">
+    @if (session('product-added'))
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-success">
+                    {{session('product-added')}}
+                </div>
+            </div>
+        </div>
+    @endif
+    @if (session('product-edited'))
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-success">
+                    {{session('product-edited')}}
+                </div>
+            </div>
+        </div>
+    @endif
+    
     <div class="row w-100 justify-content-center">
         <div class="col-11 mx-auto">
             <table class="table w-100 table-hover text-center">
