@@ -24,7 +24,7 @@
                         <th scope="col">photo</th>
                         <th scope="col">Size</th>
                         <th scope="col">Price</th>
-                        <th scope="col">created at</th>
+                        {{-- <th scope="col">created at</th> --}}
                         <th scope="col">updated at</th>
                     </tr>
                 </thead>
@@ -43,11 +43,16 @@
                             </td>
                             <td>{{$product['size']}}</td>
                             <td>{{$product['price']}}</td>
-                            <td>{{$product['created_at']}}</td>
+                            {{-- <td>{{$product['created_at']}}</td> --}}
                             <td>{{$product['updated_at']}}</td>
                             <td>
                                 <a href="/admin/products/{{$product['id']}}">
                                     <button type="button" class="btn btn-dark">View</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/admin/products/{{$product['id']}}/edit">
+                                    <button type="button" class="btn btn-warning">Edit</button>
                                 </a>
                             </td>
                         </tr>
