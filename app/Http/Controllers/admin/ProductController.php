@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProductController extends Controller
 {
@@ -53,8 +55,8 @@ class ProductController extends Controller
         $newProduct->name = $data["name"];
         $newProduct->brand = $data["brand"];
         $newProduct->photo = Storage::put('uploads',$data["photo"]);
-        // $newProduct->user_id = Auth::user()->id;
-        // $newProduct->description = $data["description"];
+        $newProduct->user_id = Auth::user()->id;
+        $newProduct->description = $data["description"];
         $newProduct->size = $data["size"];
         $newProduct->price = $data["price"];
         $newProduct->save();

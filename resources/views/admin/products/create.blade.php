@@ -43,20 +43,19 @@
                             </div>
                         @enderror
                     </div>
-                    {{-- <div class="col-12">
-                        <label for="description">Descrizione*</label>
+                    <div class="col-12">
+                        <label for="description">Description*</label>
                         <textarea class="form-control" name="description" id="description" required autocomplete="on" autofocus minlength="10">{{ old('description') ?? '' }}</textarea>
                         @error('description')
                             <div class="alert alert-danger mt-2">
-                                La descrizione
+                                Description
                                 {{ $message }}
                             </div>
                         @enderror
-                    </div> --}}
+                    </div>
                     <div class="col-12 ">
                         <label for="size">Size:*</label>
-                        <input type="number" name="size" id="size" value="{{ old('size') ?? '' }}" required
-                            min="1">
+                        <input type="text" name="size" id="size" value="{{ old('size') ?? '' }}">
                         @error('size')
                             <div class="alert alert-danger mt-2">
                                 Size

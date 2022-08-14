@@ -20,22 +20,27 @@
                 </thead>
                 <tbody>
                     @foreach ($products as $product)
-                    <tr class="products-index-table">
-                        <th scope="row">{{$product['id']}}</th>
-                        <td>{{$product['name']}}</td>
-                        <td>{{$product['brand']}}</td>
-                        <td class="overflow-hidden" style="max-width: 10rem;">
-                            @if (str_starts_with($product->photo, 'https://') || str_starts_with($product->photo, 'http://'))
-                                <img class="w-100" src="{{$product['photo']}}" alt="{{$product['photo']}}">
-                            @else
-                                <img class="w-100" src="{{ asset('/storage') . '/' . $product['photo'] }}" alt="{{$product['name']}}">
-                            @endif
-                        </td>
-                        <td>{{$product['size']}}</td>
-                        <td>{{$product['price']}}</td>
-                        <td>{{$product['created_at']}}</td>
-                        <td>{{$product['updated_at']}}</td>
-                    </tr>
+                        <tr class="products-index-table">
+                            <th scope="row">{{$product['id']}}</th>
+                            <td>{{$product['name']}}</td>
+                            <td>{{$product['brand']}}</td>
+                            <td class="overflow-hidden" style="max-width: 10rem;">
+                                @if (str_starts_with($product->photo, 'https://') || str_starts_with($product->photo, 'http://'))
+                                    <img class="w-100" src="{{$product['photo']}}" alt="{{$product['photo']}}">
+                                @else
+                                    <img class="w-100" src="{{ asset('/storage') . '/' . $product['photo'] }}" alt="{{$product['name']}}">
+                                @endif
+                            </td>
+                            <td>{{$product['size']}}</td>
+                            <td>{{$product['price']}}</td>
+                            <td>{{$product['created_at']}}</td>
+                            <td>{{$product['updated_at']}}</td>
+                            <td>
+                                <a href="/admin/products/{{$product['id']}}">
+                                    <button type="button" class="btn btn-dark">View</button>
+                                </a>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>

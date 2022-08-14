@@ -17,9 +17,11 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('brand');
+            $table->longText('description');
             $table->char('size',3);
             $table->float('price',8,2);
             $table->string('photo');
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }

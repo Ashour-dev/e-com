@@ -25,6 +25,7 @@ class ProductSeeder extends Seeder
             $newProduct= new Product();
             $newProduct->name= $faker->word();
             $newProduct->brand= $faker->randomElement($brands);
+            $newProduct->description= $faker->paragraph();
             $newProduct->size= $faker->randomElement($sizes);
             $newProduct->price= $faker->randomFloat(2,5,80);
             $newProduct->photo= $prodPhoto[$i];
