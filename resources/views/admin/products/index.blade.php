@@ -53,12 +53,12 @@
                             <td>{{$product['updated_at']}}</td>
                             <td>
                                 <a href="/admin/products/{{$product['id']}}">
-                                    <button type="button" class="btn btn-dark">View</button>
+                                    <button type="button" class="btn btn-dark shadow-none">View</button>
                                 </a>
                             </td>
                             <td>
                                 <a href="/admin/products/{{$product['id']}}/edit">
-                                    <button type="button" class="btn btn-warning">Edit</button>
+                                    <button type="button" class="btn btn-warning shadow-none">Edit</button>
                                 </a>
                             </td>
                             <td>
@@ -66,7 +66,7 @@
                                     class="product-form-destroyer">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger text-white">delete</a>
+                                    <button type="submit" class="btn btn-danger text-white shadow-none">delete</a>
                                 </form>
                             </td>
                         </tr>

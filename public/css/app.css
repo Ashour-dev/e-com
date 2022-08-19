@@ -12634,7 +12634,7 @@ fieldset:disabled .btn {
   }
 }
 
-.products-index-table * {
+.products-index-table td {
   vertical-align: center;
 }
 
