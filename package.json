@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "Axios": "npm:axios@^0.19.2",
         "vue-router": "^3.5.4"
     }
 }

@@ -1909,7 +1909,10 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Card'
+  name: 'Card',
+  props: {
+    product: Array
+  }
 });
 
 /***/ }),
@@ -1938,12 +1941,33 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Card */ "./resources/js/components/Card.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Card */ "./resources/js/components/Card.vue");
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
   components: {
-    Card: _components_Card__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Card: _components_Card__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      products: []
+    };
+  },
+  methods: {
+    getProducts: function getProducts() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/products').then(function (response) {
+        _this.products = response.data;
+        console.log(_this.products);
+      });
+    }
+  },
+  created: function created() {
+    this.getProducts();
   }
 });
 
@@ -1997,33 +2021,26 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", {
     staticClass: "card"
   }, [_c("img", {
     staticClass: "card-img-top",
     attrs: {
-      src: "https://images.unsplash.com/photo-1444097315577-49429a8b6224?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNTQ1NzN8MHwxfHNlYXJjaHwzfHxjbG90aGluZy1wcm9kdWN0fGVufDB8fHx8MTY2MDQ4NTE0OQ&ixlib=rb-1.2.1&q=80",
+      src: _vm.product.photo,
       alt: "..."
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("h5", {
     staticClass: "card-title"
-  }, [_vm._v("Card title")]), _vm._v(" "), _c("p", {
+  }, [_vm._v(_vm._s(_vm.product.brand) + " " + _vm._s(_vm.product.name))]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
-  }, [_vm._v("This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.")]), _vm._v(" "), _c("p", {
+  }, [_vm._v("Size: " + _vm._s(_vm.product.size))]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
-  }, [_c("small", {
-    staticClass: "text-muted"
-  }, [_vm._v("Last updated 3 mins ago")])])])]);
-}];
+  }, [_vm._v("price: " + _vm._s(_vm.product.price) + "£")])])]);
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -2070,7 +2087,14 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "d-flex justify-content-between flex-wrap mx-auto p-3"
-  }, [_c("Card")], 1);
+  }, _vm._l(_vm.products, function (product, index) {
+    return _c("Card", {
+      key: index,
+      attrs: {
+        product: product
+      }
+    });
+  }), 1);
 };
 
 var staticRenderFns = [];
