@@ -18,6 +18,10 @@ export default {
 
 <style lang="scss" scoped>
     .card{
-        width: 19vw !important;
+        width: 18.7vw !important;
+        img{
+            height: 30vh;
+            object-fit: cover;
+        }
     }
 </style>

@@ -2086,7 +2086,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "d-flex justify-content-between flex-wrap mx-auto p-3"
+    staticClass: "d-flex justify-content-center gap-2 flex-wrap mx-auto p-3"
   }, _vm._l(_vm.products, function (product, index) {
     return _c("Card", {
       key: index,
@@ -2163,7 +2163,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card[data-v-b9bc2c0a] {\n  width: 19vw !important;\n}", ""]);
+exports.push([module.i, ".card[data-v-b9bc2c0a] {\n  width: 18.7vw !important;\n}\n.card img[data-v-b9bc2c0a] {\n  height: 30vh;\n  -o-object-fit: cover;\n     object-fit: cover;\n}", ""]);
 
 // exports
 

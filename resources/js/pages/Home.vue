@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex justify-content-between flex-wrap mx-auto p-3">
+    <div class="d-flex justify-content-center gap-2 flex-wrap mx-auto p-3">
         <Card v-for="(product,index) in products" :key="index" :product="product" />
     </div>
 </template>
