@@ -8,6 +8,6 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-.products-index-table td{
-    vertical-align: center;
+.products-index-table *{
+    vertical-align: middle;
 }

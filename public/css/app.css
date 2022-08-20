@@ -10860,6 +10860,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.products-index-table td {
-  vertical-align: center;
+.products-index-table * {
+  vertical-align: middle;
 }
