@@ -1912,6 +1912,11 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Card',
   props: {
     product: Array
+  },
+  methods: {
+    openProduct: function openProduct(id) {
+      window.open("/product/".concat(id));
+    }
   }
 });
 
@@ -2046,7 +2051,12 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "card"
+    staticClass: "card",
+    on: {
+      click: function click($event) {
+        return _vm.openProduct(_vm.product.id);
+      }
+    }
   }, [_c("img", {
     staticClass: "card-img-top",
     attrs: {

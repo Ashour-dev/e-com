@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card" @click="openProduct(product.id)">
         <img :src="product.photo" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{product.brand}} {{product.name}}</h5>
@@ -12,7 +12,12 @@
 <script>
 export default {
     name:'Card',
-    props:{product:Array}
+    props:{product:Array},
+    methods:{
+        openProduct(id){
+            window.open(`/product/${id}`);
+        }
+    }
 }
 </script>
 
