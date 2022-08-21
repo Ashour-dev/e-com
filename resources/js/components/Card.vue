@@ -29,4 +29,7 @@ export default {
             object-fit: cover;
         }
     }
+    .card:hover{
+        cursor: pointer;
+    }
 </style>

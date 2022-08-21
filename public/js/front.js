@@ -2207,7 +2207,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card[data-v-b9bc2c0a] {\n  width: 18.7vw !important;\n}\n.card img[data-v-b9bc2c0a] {\n  height: 30vh;\n  -o-object-fit: cover;\n     object-fit: cover;\n}", ""]);
+exports.push([module.i, ".card[data-v-b9bc2c0a] {\n  width: 18.7vw !important;\n}\n.card img[data-v-b9bc2c0a] {\n  height: 30vh;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.card[data-v-b9bc2c0a]:hover {\n  cursor: pointer;\n}", ""]);
 
 // exports
 
