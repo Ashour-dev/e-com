@@ -2142,7 +2142,17 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_vm._v("\n    Show\n")]);
+  return _c("div", {
+    staticClass: "w-50 mx-auto text-center"
+  }, [_c("img", {
+    staticClass: "w-100 mb-4",
+    attrs: {
+      src: _vm.product["photo"].startsWith("https://") ? _vm.product.photo : "../../storage/" + _vm.apartment.photo,
+      alt: _vm.product["name"]
+    }
+  }), _vm._v(" "), _c("h1", [_vm._v(_vm._s(_vm.product["brand"]) + " " + _vm._s(_vm.product["name"]))]), _vm._v(" "), _c("p", {
+    staticClass: "w-50 mx-auto"
+  }, [_vm._v(_vm._s(_vm.product["description"]))]), _vm._v(" "), _c("h3", [_vm._v("Size Available: " + _vm._s(_vm.product["size"]))]), _vm._v(" "), _c("h3", [_vm._v("price: " + _vm._s(_vm.product["price"]))])]);
 };
 
 var staticRenderFns = [];

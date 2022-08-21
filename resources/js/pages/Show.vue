@@ -1,6 +1,10 @@
 <template>
-    <div>
-        Show
+    <div class="w-50 mx-auto text-center">
+        <img class="w-100 mb-4" :src="(product['photo'].startsWith('https://')) ? product.photo : '../../storage/'+ apartment.photo" :alt="product['name']">
+        <h1>{{product['brand']}} {{product['name']}}</h1>
+        <p class="w-50 mx-auto">{{product['description']}}</p>
+        <h3>Size Available: {{product['size']}}</h3>
+        <h3>price: {{product['price']}}</h3>
     </div>
 </template>
 
